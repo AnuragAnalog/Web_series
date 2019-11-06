@@ -1,0 +1,88 @@
+<html>
+    <title>
+        Registration Form
+    </title>
+
+    <head>
+        <h1> <center> Fill in your details </center> </h1>
+        <link rel=stylesheet type=text/css href=./css/register.css>
+    </head>
+
+    <script type=text/javascript>
+        function errcheck()
+        {
+            var errs = location.search.split("?")[1];
+            var val = errs.split("=")[1];
+            
+            if (val == 'passlen')
+            {
+                alert("Password Length should > 8 chars");
+                return ;
+            }
+
+            if (val == 'passconpass')
+            {
+                alert("Password and Confirm Password didn't match\n");
+                return ;
+            }
+
+            if (val == "email")
+            {
+                alert("Enter a valid email-id");
+            }
+        }
+        function checktype()
+        {
+            var val = location.search.split("?")[1];
+            var type = val.split("=")[1];
+
+            if (type == 'admin')
+            {
+                document.write("<td> <input class=uname name=admin-user type=text value=admin readonly> <br> </td>");
+            }
+            else
+            {
+                document.write("<td> <input class=passwd name=admin-user type=text value=user readonly> <br> </td>");
+            }
+        }
+    </script>
+
+    <fieldset>
+        <!-- <legend align=center> Register Your-self </legend> -->
+        <h3 class="header">Register</h3>
+        <form name=reg action="reg.php" method=POST>
+        <!-- <form name=reg> -->
+            <table align=center>
+                <tr>
+                    <td> Username: </td>
+                    <td> <input class="uname" name=uname type=text value=""> <br> </td>
+                </tr>
+                <tr>
+                    <td> Password: </td>
+                    <td> <input class="passwd" name=passwd type=password value=""> <br> </td>
+                </tr>
+                <tr>
+                    <td> Confirm Password: </td>
+                    <td> <input class="passwd" name=conpasswd type=password value=""> <br> </td>
+                </tr>
+                <script type=text/javascript>
+                    errcheck()
+                </script>
+                <tr>
+                    <td> E-mail id: </td>
+                    <td> <input class=uname name=email type=text value=""> <br> </td>
+                </tr>
+                <tr>
+                    <td> Privileges </td>
+                    <script>
+                        checktype();
+                    </script>
+                </tr>
+                <tr align=right>
+                    <td> &nbsp; </td>
+                    <td> <input name=register class=login_btn type=submit value="Register"> <br> </td>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+</html>

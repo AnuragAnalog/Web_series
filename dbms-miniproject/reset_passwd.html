@@ -1,0 +1,45 @@
+<html>
+    <title>
+        Reset password
+    </title>
+
+    <head>
+        <h1> <center> Reset your Password </center> </h1>
+    </head>
+
+    <script type=text/javascript>
+        function errcheck()
+        {
+            var errs = location.search.split("?")[1];
+            var val = errs.split("=")[1];
+            if (val == 'passlen')
+            {
+                alert("Password Length should > 8 chars");
+                return ;
+            }
+
+            if (val == 'passconpass')
+            {
+                alert("Password and Confirm Password didn't match\n");
+                return ;
+            }
+        }
+    </script>
+
+    <form name=reset action=reset_passwd.php method=post>
+        <table align=center>
+            <tr>
+                <td> Enter new password: </td>
+                <td> <input type=password name=npasswd value=""> </td>
+            </tr>
+            <tr>
+                <td> Confirm new password: </td>
+                <td> <input type=password name=cnpasswd value=""> </td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td align=right> <input type=submit name=btn value="Reset"> </td>
+            </tr>
+        </table>
+    </form>
+</html>

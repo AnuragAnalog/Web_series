@@ -1,0 +1,96 @@
+<html>
+    <title> 
+        Video Upload
+    </title>
+    <head>
+        <link rel=stylesheet type=text/css href=./css/welcome.css>
+    </head>
+
+    <script type=text/javascript>
+        function errcheck()
+        {
+            var errs = location.search.split("?")[1];
+            var val = errs.split("=")[1];
+            if (val == 'name')
+            {
+                alert("Name of the Web-Series is must");
+                return ;
+            }
+
+            if (val == 'genre')
+            {
+                alert("How did you miss genre");
+                return ;
+            }
+
+            if (val == 'image')
+            {
+                alert("OOPS you forgot the thumbnail");
+                return ;
+            }
+
+            if (val == 'video')
+            {
+                alert("Video Missing");
+            }
+        }
+        function check()
+        {
+            var status = location.search.split("?")[1];
+            var val = status.split("=")[1];
+            if (val == 'added')
+            {
+                alert("Series Uploaded");
+                return ;
+            }
+        }
+    </script>
+
+    <div class="topnav">
+        <a class=active href=playlist.php> Go to Playlist </a>
+        <a href=register.html?user=admin> Add Admin </a>
+        <a href=register.html?user=user> Add User </a>
+        <a href=about.php> About </a>
+        <a class=logout href=logout.php> Logout </a>
+    </div>
+    <body>
+        <script type=text/javascript>
+            check();
+            errcheck();
+        </script>
+        <fieldset class=sector>
+            <h3 class="head"> Video Details </h3>
+            <form name=wseries action=welcome.php method=post>
+                <table align=center>
+                    <tr>
+                        <td> <input name=namews type=text value="" placeholder="Name of series"> </td>
+                    </tr>
+                    <tr>
+                        <td> <input name=genrews type=text value="" placeholder="Genre of series"> </td>
+                    </tr>
+                    <tr>
+                        <td> <input name=seasonws type=text value="" placeholder="No of Seasons"> </td>
+                    </tr>
+                    <tr>
+                        <td> <input name=episodews type=text value="" placeholder="No of episodes"> </td>
+                    </tr>
+                    <tr>
+                        <td> <input name=durationws type=text value="" placeholder="Duration(in mins)"> </td>
+                    </tr>
+                    <tr>
+                        <td> <input name=ratews type=text value="" placeholder="Rating"> </td>
+                    </tr>
+                    <tr>
+                        <td> Thumbnail <br> <input name=imagews type=file value="" multiple> </td>
+                    </tr>
+                    <tr>
+                        <td> Video Link <br> <input name=videows type=file value="" multiple> </td>
+                    </tr>
+                    <tr align=center>
+                        <td> <input name=Submit class=login_btn type=submit value="Submit"> </td>
+                    </tr>
+                </table>
+            </form>
+        </fieldset>
+    </body>
+</html>

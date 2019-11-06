@@ -1,0 +1,66 @@
+<html>
+    <title>
+        Password Recovery
+    </title>
+
+    <head>
+        <center>
+            <h1> Forget your Password? </h1>
+            <h2> Don't Panic </h2>
+            <h3> Come here </h3>
+        </center>
+    </head>
+
+    <script type=text/javascript>
+        function errcheck()
+        {
+            var reg = location.search.split("?")[1];
+            var val = reg.split("=")[1];
+            if (val == "fail")
+            {
+                document.write("Either your ceredentials didn't match Or\n");
+                document.write("You are not a registered user.");
+            }
+        }
+    </script>
+
+    <body>
+        <script type=text/javascript>
+            errcheck()
+        </script>
+    </body>
+
+    <fieldset>
+        <form name=fgtpasswd action="forgot_passwd.php" method="POST">
+            <table align=center>
+                <tr>
+                    <td> Enter your username: </td>
+                    <td> <input type=text name=uname value=""> </td>
+                </tr>
+                <tr>
+                    <td> Enter your Email: </td>
+                    <td> <input type=text name=email value=""> </td>
+                </tr>
+                <tr>
+                    <td> </td>
+                    <td align=right> <input type=submit name=btn value="Reset Password"> </td>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+</html>
+
+<style>
+    fieldset
+    {
+        /* min-width: auto; */
+        margin-left: 25%;
+        display: inline-block;
+        width: 50%;
+    }
+    
+    form
+    {
+        -webkit-text-fill-color: darkgoldenrod;
+    }
+</style>
